@@ -35,7 +35,7 @@ date_default_timezone_set('Asia/Kolkata');
                     <br />
 					<?php 				
 					$attributes = array('class' => 'form-horizontal form-label-left','id'=>'demo-form2');					
-					echo  form_open_multipart('edit_exam/'.$id, $attributes);
+					echo  form_open_multipart('update_exam/'.$id, $attributes);
 					?>
 		                   
 		              

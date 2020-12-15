@@ -1300,8 +1300,7 @@ $userdata=$this->session->all_userdata();
         $this->load->view('includes/template', $data);
 
    }
-
-	function update_member($id)
+   function update_member($id)
 	{
 	 $userdata=$this->session->all_userdata();
      @$user_id=$userdata['id'];
@@ -4558,7 +4557,7 @@ public function hospitalization_List()
 					}
 			 }					
 			 $data['all_exam']= $this->product_module->get_about_list();
-			 $data['main_content'] = 'admin/add_exam';
+			 $data['main_content'] = 'admin/exam/add_exam';
              $this->load->view('includes/template', $data);	
 		}
 	function list_exam()
@@ -4573,7 +4572,7 @@ public function hospitalization_List()
 	    
 	    //echo "<pre>";
 	    //print_r($data['results']);exit;
-        $data['main_content'] = 'admin/list_exam';
+        $data['main_content'] = 'admin/exam/list_exam';
         $this->load->view('includes/template', $data);
     }
 	
@@ -4692,11 +4691,29 @@ public function hospitalization_List()
 			 $data['results'] = $this->product_module->get_exam_listbyid($id);
 			 $data['all_exam']= $this->product_module->get_about_list();
 			
-          	 $data['main_content'] = 'admin/edit_exam';
+          	 $data['main_content'] = 'admin/exam/edit_exam';
              $this->load->view('includes/template', $data);	
         
     }
-	
+	function delete_exam($id)
+	{
+		$userdata=$this->session->all_userdata();
+		@$user_id=$userdata['id'];
+		if($user_id=='')
+		{
+			redirect(base_url());
+		}
+
+		$this->product_module->delete_exam($id);
+
+
+		$data['results'] = $this->product_module->list_exam_api();
+
+		//echo "<pre>";
+		//print_r($data['results']);exit;
+		$data['main_content'] = 'admin/exam/list_exam';
+		$this->load->view('includes/template', $data);
+	}
 	function add_questionbank()
 	 {
        $userdata=$this->session->all_userdata();

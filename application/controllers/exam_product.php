@@ -37,6 +37,8 @@ class Exam_Product extends CI_Controller
 
 	}
 
+
+
 	/*
 	 * Exam Subject
 	 * */
@@ -50,7 +52,7 @@ class Exam_Product extends CI_Controller
 			redirect(base_url());
 		}
 		$data['results'] = $this->exam_product_model->getClass();
-		$data['main_content'] = 'admin/add_exam_subject';
+		$data['main_content'] = 'admin/exam/add_exam_subject';
 		$this->load->view('includes/template', $data);
 
 	}
@@ -155,7 +157,7 @@ class Exam_Product extends CI_Controller
 			$data['flash_message'] =FALSE;
 		}
 		$data['results'] = $this->exam_product_model->getClass();
-		$data['main_content'] = 'admin/add_exam_subject';
+		$data['main_content'] = 'admin/exam/add_exam_subject';
 		$this->load->view('includes/template', $data);
 	}
 
@@ -170,7 +172,7 @@ class Exam_Product extends CI_Controller
 
 		{
 			$data['results'] = $this->exam_product_model->getExamSubjectList();
-			$data['main_content'] = 'admin/list_exam_subject';
+			$data['main_content'] = 'admin/exam/list_exam_subject';
 			$this->load->view('includes/template', $data);
 		}
 	}
@@ -185,7 +187,7 @@ class Exam_Product extends CI_Controller
 		}
 		$data['ExamSubjectList']=$this->exam_product_model->getExamSubjectById($id);
 		$data['result'] = $this->exam_product_model->getClass();
-		$data['main_content'] = 'admin/edit_exam_subject';
+		$data['main_content'] = 'admin/exam/edit_exam_subject';
 		$this->load->view('includes/template', $data);
 
 	}
@@ -292,7 +294,7 @@ class Exam_Product extends CI_Controller
 
 		$data['results'] = $this->exam_product_model->getExamSubjectList();
 		$data['result'] = $this->exam_product_model->getClass();
-		$data['main_content'] = 'admin/list_exam_subject';
+		$data['main_content'] = 'admin/exam/list_exam_subject';
 		$this->load->view('includes/template', $data);
 	}
 
@@ -310,7 +312,7 @@ class Exam_Product extends CI_Controller
 
 		$data['results'] = $this->exam_product_model->getExamSubjectList();
 
-		$data['main_content'] = 'admin/list_exam_subject';
+		$data['main_content'] = 'admin/exam/list_exam_subject';
 		$this->load->view('includes/template', $data);
 
 
@@ -330,7 +332,7 @@ class Exam_Product extends CI_Controller
 		}
 		 $data['subjects'] = $this->exam_product_model->getExamSubjectList();
  		 $data['results'] = $this->exam_product_model->getClass();
-		 $data['main_content'] = 'admin/add_exam_chapter';
+		 $data['main_content'] = 'admin/exam/add_exam_chapter';
          $this->load->view('includes/template', $data);
 
 	}
@@ -358,7 +360,7 @@ class Exam_Product extends CI_Controller
 			$data['flash_message'] =FALSE;
 		}
 		$data['results'] = $this->exam_product_model->getClass();
-		$data['main_content'] = 'admin/add_exam_chapter';
+		$data['main_content'] = 'admin/exam/add_exam_chapter';
 		$this->load->view('includes/template', $data);
 
 	}
@@ -405,7 +407,7 @@ class Exam_Product extends CI_Controller
 
 
 			$data['results'] = $this->exam_product_model->getExamChapterNames();
-			$data['main_content'] = 'admin/list_exam_chapter_name';
+			$data['main_content'] = 'admin/exam/list_exam_chapter_name';
 			$this->load->view('includes/template', $data);
 
 	}
@@ -435,7 +437,7 @@ class Exam_Product extends CI_Controller
 				$data['flash_message'] =FALSE;
 			}
 			$data['results'] = $this->exam_product_model->getExamChapterNames();
-			$data['main_content'] = 'admin/list_exam_chapter_name';
+			$data['main_content'] = 'admin/exam/list_exam_chapter_name';
 			$this->load->view('includes/template', $data);
 		}
 		$data['get_chapter_name'] = $this->exam_product_model->getChapterNamesByID($id);
@@ -457,11 +459,11 @@ class Exam_Product extends CI_Controller
 			redirect(base_url());
 		}
 
-		$this->product_module->delete_chapter_name($id);
+		$this->exam_product_model->deleteChapterName($id);
 
 
-		$data['results'] = $this->product_module->get_chapter_name_list();
-		$data['main_content'] = 'admin/list_chaptername';
+		$data['results'] = $this->exam_product_model->getExamChapterNames();
+		$data['main_content'] = 'admin/exam/list_exam_chapter_name';
 		$this->load->view('includes/template', $data);
 	}
 
@@ -758,7 +760,7 @@ class Exam_Product extends CI_Controller
 	}
 
 
-	public function delete_exam_chapter_video($id)
+	function delete_exam_chapter_video($id)
 	{
 		$userdata=$this->session->all_userdata();
 		@$user_id=$userdata['id'];

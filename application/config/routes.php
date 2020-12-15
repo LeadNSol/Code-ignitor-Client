@@ -420,15 +420,18 @@ $route['list_slider_api'] = 'admin_apps/list_slider_api';
 //list_slider_api
 /*examp routes start here-12-06-2019*/
 $route['create_exam'] = 'product/create_exam';
+$route['list_exam'] = 'product/list_exam';
 $route['edit_exam/(:any)'] = "product/edit_exam/$1";
-$route['edit_exam/(:any)'] = "product/edit_exam/$1";
+$route['update_exam/(:any)'] = "product/edit_exam/$1";
+$route['delete_exam/(:any)'] = "product/delete_exam/$1";
+
 $route['list_exam_api'] = 'admin_apps/list_exam_api';
 $route['list_exambyid_api'] = 'admin_apps/list_exambyid_api';
 $route['list_question_api'] = 'admin_apps/list_question_api';
 $route['list_subjectbyid_api'] = 'admin_apps/list_subjectbyid_api';
 
 
-$route['list_exam'] = 'product/list_exam';
+
 $route['add_questionbank'] = 'product/add_questionbank';
 $route['fetch_exambyid'] = 'product/fetch_exambyid';
 $route['add_question'] = 'product/add_question';

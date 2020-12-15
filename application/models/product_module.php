@@ -2060,6 +2060,11 @@ public function chapter_details_addForm($data)
     $data= $query_banner_data->result_array(); 	  
     return $data;	      
 	}
+	public function delete_exam($id){
+		$this->db->where('id',$id);
+		$this->db->delete('exam');
+		return true;
+	}
 public function check_email_api($email)
 	{
 		$this->db->select('*');
