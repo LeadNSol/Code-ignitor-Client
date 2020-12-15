@@ -4896,7 +4896,7 @@ function list_exam_subscription()
 	   
 	   //echo "<pre>";
 	   //print_r($data['results']);exit;
-	   $data['main_content'] = 'admin/list_exam_subscription';
+	   $data['main_content'] = 'admin/exam/list_exam_subscription';
 	   $this->load->view('includes/template', $data);
    }
 public function delete_exam_subscription($id){
@@ -4926,7 +4926,7 @@ function list_exam_subscription_details(){
 			$data['results'] = $this->product_module->get_message_list();
 			//echo "<pre>";
 			//print_r($data);exit;
-			$data['main_content'] = 'admin/list_exam_subscription_details';
+			$data['main_content'] = 'admin/exam/list_exam_subscription_details';
 			$this->load->view('includes/template', $data);
 	}
 	// function add_exam_subs($id)
@@ -5001,7 +5001,7 @@ function list_exam_subscription_details(){
 				}
 			}	
 		 $data['results'] = $this->product_module->get_message_list();
-        $data['main_content'] = 'admin/add_exam_subs';
+        $data['main_content'] = 'admin/exam/add_exam_subs';
         $this->load->view('includes/template', $data);
 }
 function fetch_examsubs_byid()
