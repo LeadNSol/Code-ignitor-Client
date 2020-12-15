@@ -1016,10 +1016,10 @@ function add_member()
 
 	}
 	
-		function add_chapter_details()
+	function add_chapter_details()
 		{
 			 $userdata=$this->session->all_userdata();
-     @$user_id=$userdata['id'];
+			 @$user_id=$userdata['id'];
 		if($user_id=='')
 		{
 			redirect(base_url());
@@ -1455,6 +1455,8 @@ public function delete_member_details($id)
     		$data['main_content'] = 'admin/list_team_member';
         $this->load->view('includes/template', $data);
     }
+
+
     public function delete_chapter_details($id)
     {
 	  $userdata=$this->session->all_userdata();

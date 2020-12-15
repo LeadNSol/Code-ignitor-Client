@@ -120,12 +120,12 @@ $route['update_subject/(:any)'] = "product/update_about/$1";
 $route['delete_subject/(:any)'] = "product/delete_about_details/$1";
 
 //subject exam
-$route['add_exam_subject'] = 'exam_product/add_about';
-$route['add_exam_subject_details'] = 'exam_product/add_about_details';
-$route['list_exam_subject_details'] = 'exam_product/list_about';
-$route['edit_exam_subject/(:any)'] = 'exam_product/edit_about/$1';
-$route['update_exam_subject/(:any)'] = "exam_product/update_about/$1";
-$route['delete_exam_subject/(:any)'] = "exam_product/delete_about_details/$1";
+$route['add_exam_subject'] = 'exam_product/add_exam_subject';
+$route['add_exam_subject_details'] = 'exam_product/add_exam_subject_details';
+$route['list_exam_subject'] = 'exam_product/list_exam_subject';
+$route['edit_exam_subject/(:any)'] = 'exam_product/edit_exam_subject/$1';
+$route['update_exam_subject/(:any)'] = "exam_product/update_exam_subject/$1";
+$route['delete_exam_subject/(:any)'] = "exam_product/delete_exam_subject_details/$1";
 
 //chapter
 $route['add_chapter_video'] = 'product/add_chapter';
@@ -144,6 +144,28 @@ $route['list_chaptername'] = 'product/list_chaptername';
 $route['edit_chapter_name/(:any)'] = 'product/edit_chapter_name/$1';
 //$route['update_chapter12/(:any)'] = "product/update_chapter/$1";
 $route['delete_chapter_name/(:any)'] = "product/delete_chapter_name/$1";
+
+//Exam chapter name
+$route['add_exam_chapter'] = 'exam_product/add_exam_chapter';
+$route['add_exam_chapter_details'] = 'exam_product/add_exam_chapter_details';
+$route['fetch_exam_subject'] = 'exam_product/fetch_exam_subject';
+
+$route['list_exam_chapter_name'] = 'exam_product/list_exam_chapter_name';
+$route['edit_exam_chapter_name/(:any)'] = 'exam_product/edit_exam_chapter_name/$1';
+$route['delete_exam_chapter_name/(:any)'] = "exam_product/delete_exam_chapter_name/$1";
+
+//Exam Chapter video
+$route['add_exam_chapter_video'] = 'exam_product/add_exam_chapter_video';
+$route['fetch_exam_chapter'] = 'exam_product/fetch_exam_chapter';
+
+$route['exam_chapter_upload_image'] = 'exam_product/exam_chapter_upload_image';
+$route['exam_chapter_upload_video'] = 'exam_product/exam_chapter_upload_video';
+$route['add_exam_chapter_details'] = 'exam_product/exam_chapter_details_add_form';
+$route['list_exam_chapter_videos'] = 'exam_product/list_exam_chapter_videos';
+
+$route['edit_exam_chapter_video/(:any)'] = 'exam_product/edit_exam_chapter_video/$1';
+$route['update_exam_chapter_video/(:any)'] = "exam_product/update_exam_chapter_video/$1";
+$route['delete_exam_chapter_video/(:any)'] = "exam_product/delete_exam_chapter_video/$1";
 
 //subsription
 $route['add_subscription/(:any)'] = 'product/add_subscription/$1';

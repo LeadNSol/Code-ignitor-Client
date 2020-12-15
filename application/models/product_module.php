@@ -818,7 +818,7 @@ function update_chapter_video2($id){
 
 		 }
 	}
-		public function update_chapter_name($id,$update_cateorgy)
+	public function update_chapter_name($id,$update_cateorgy)
 	{
 		 $this->db->where('chapter_name_id',$id);
 		 if($this->db->update('chapter_name',$update_cateorgy))

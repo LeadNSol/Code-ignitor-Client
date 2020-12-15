@@ -1,4 +1,13 @@
-    
+    <?php
+   $id=$this->uri->segment(2);
+					foreach ($get_chapter_name as $key => $value) {
+					$name=$value['chapter_name'];
+						$class_id=$value['class_id'];
+							$sub_id=$value['sub_id'];
+				
+						}
+					
+				?>
     <script src="<?php echo base_url() ?>js/jquery.form.js"></script>
 	 <!-- /top navigation -->
 
@@ -8,7 +17,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Add <small>Chapter</small></h2>
+                    <h2>Edit <small>Chapter Name</small></h2>
                     
                     <div class="clearfix"></div>
                   </div>
@@ -22,7 +31,7 @@
 						 
 						  <div class="alert alert-success">
 							<a class="close" data-dismiss="alert">×</a>
-							<strong>Well done!</strong>  add Chapter successfully.
+							<strong>Well done!</strong> update Chapter successfully.
 						  </div>
 								<?php }else { ?>
 									  <div class="alert alert-danger">
@@ -36,7 +45,7 @@
                     <br />
 					<?php 				
 					$attributes = array('class' => 'form-horizontal form-label-left','id'=>'demo-form2');					
-					echo  form_open_multipart('add_chapter_details1/', $attributes);
+					echo  form_open_multipart('edit_exam_chapter_name/'.$id, $attributes);
 					?>
                     
 
@@ -44,25 +53,27 @@
 
 
 		                     <div class="form-group profile_ed_f_rm">
-		               <label class="control-label col-md-3 col-sm-3 col-xs-12 view_le_nme" for="first-name">Sellect Class<span class="required">*</span>
+		               <label class="control-label col-md-3 col-sm-3 col-xs-12 view_le_nme" for="first-name">Select Class<span class="required">*</span>
 		              </label>
 		              <?php //print_r($main_category);?>
 		              <div class="col-md-9 col-sm-9 col-xs-12">
 		                  <select class="form-control col-md-7 col-xs-12" name="class_id" required="required" id="main_class">
 		                     <option value="">Select</option>
 		                      <?php
-		                      foreach($results as $key=>$val){?>
+		                      foreach($results as $key=>$val){
 
-		                            <option value="<?php echo $val['id'] ?>"><?php echo $val['name'] ?></option>
+		                          ?>
+
+		                            <option value="<?php  echo $val['id'] ?>" <?php if ($class_id==$val['id']){echo 'selected';}?> ><?php echo $val['name'] ?></option>
 		                      <?php }?>
 		                  </select>
-		                 
+		                 <!--<?php if ($class_id==$val['id']){echo 'selected';}?>-->
 		              </div>
 		               </div>
 
 
 		                     <div class="form-group profile_ed_f_rm">
-		               <label class="control-label col-md-3 col-sm-3 col-xs-12 view_le_nme" for="first-name">Sellect Subject<span class="required">*</span>
+		               <label class="control-label col-md-3 col-sm-3 col-xs-12 view_le_nme" for="first-name">Select Subject<span class="required">*</span>
 		              </label>
 		             
 		              <div class="col-md-9 col-sm-9 col-xs-12">
@@ -80,7 +91,7 @@
 						<label class="control-label col-md-3 col-sm-3 col-xs-12 view_le_nme" for="first-name">Chapter Name <span class="required">*</span>
 						</label>
 						<div class="col-md-9 col-sm-9 col-xs-12">
-						     <input type="text" id="facebook_link" name="name" required="required" class="form-control col-md-7 col-xs-12" value="">
+						     <input type="text" id="facebook_link" name="name" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $name;?> ">
 						</div>
 				       </div>
                           <div class="ln_solid"></div>
@@ -139,7 +150,7 @@
 
    $.ajax({
         type: "POST",
-        url: "<?php echo base_url(); ?>fetchsubject",
+        url: "<?php echo base_url(); ?>fetch_exam_subject",
         data: {class_id:class_id},
         success: function(data)
         {
