@@ -218,20 +218,7 @@
              </li>
                     </ul>
                   </li>
-				   <li class="">
-           <a>
-            <i class="fa fa-wrench" aria-hidden="true"></i> Manage Exam<span class="fa fa-chevron-down"></span>
-           </a>
-                    <ul class="nav child_menu" style="display: none;">
-
-             <li>
-               <a href="<?php echo base_url()?>create_exam">Add Exam</a>
-             </li>
-              <li>
-               <a href="<?php echo base_url()?>list_exam">List Exam</a>
-             </li>
-                    </ul>
-                  </li>
+			<?php $this->load->view('includes/side_exam'); ?>
 			<li class="">
            <a>
             <i class="fa fa-wrench" aria-hidden="true"></i> Manage Question Bank<span class="fa fa-chevron-down"></span>
